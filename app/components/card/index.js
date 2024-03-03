@@ -10,7 +10,6 @@ export const Card = (props) => {
     //for count of residents
     const residentCount = data?.location?.residents?.length ? data?.location?.residents?.length : '0';
     const originResidentCount = data?.origin?.residents?.length ? data?.origin?.residents?.length : '0';
-
     return (
         <TouchableOpacity style={styles.cardContainer(
             //For different background colors
@@ -37,14 +36,16 @@ export const Card = (props) => {
                         <View style={styles.main()}>
                             <Text style={styles.titleStyle()}>Origin Location</Text>
                             <Text style={styles.subTitleStyle()}>Name - {data?.origin?.name}</Text>
-                            <Text style={styles.subTitleStyle()}
-                            >Dimensions - {data?.origin?.dimension}</Text>
+                            {data?.origin?.dimension && <Text style={styles.subTitleStyle()}
+                            >Dimensions - {data?.origin?.dimension}</Text>}
                             <Text style={styles.subTitleStyle()}>Amount of residents - {originResidentCount}</Text>
                         </View>
                         <View style={styles.locationInfo()}>
                             <Text style={styles.titleStyle()}>Current Location</Text>
                             <Text style={styles.subTitleStyle()}>Name - {data?.location?.name}</Text>
-                            <Text style={styles.subTitleStyle()}>Dimension - {data?.location?.dimension}</Text>
+                            {data?.location?.dimension &&
+                                <Text style={styles.subTitleStyle()}>Dimension - {data?.location?.dimension}</Text>
+                            }
                             <Text style={styles.subTitleStyle()}>Amount of residents - {residentCount}</Text>
                         </View>
                     </View>

@@ -28,14 +28,17 @@ export const DetailScreen = ({ route }) => {
                 <View style={{ paddingTop: 12 }}>
                     <Text style={styles.titleStyle()}>Current Location</Text>
                     <Text style={styles.subTitleStyle()}>Name:- {data?.location?.name}</Text>
-                    <Text style={styles.subTitleStyle()}>Dimensions:- {data?.location?.dimension}</Text>
+                    {data?.location?.dimension &&
+                        <Text style={styles.subTitleStyle()}>Dimensions:- {data?.location?.dimension}</Text>
+                    }
                     <Text style={styles.subTitleStyle()}>Amount of Residents:- {residentCount}</Text>
                 </View>
 
                 <View style={{ paddingTop: 12 }}>
                     <Text style={styles.titleStyle()}>Origin Location</Text>
                     <Text style={styles.subTitleStyle()}>Name:- {data?.origin?.name}</Text>
-                    <Text style={styles.subTitleStyle()}>Dimensions:- {data?.origin?.dimension}</Text>
+                    {data?.origin?.dimension &&
+                        <Text style={styles.subTitleStyle()}>Dimensions:- {data?.origin?.dimension}</Text>}
                     <Text style={styles.subTitleStyle()}>Amount of Residents:- {originResidentCount}</Text>
                 </View>
             </View>
