@@ -1,4 +1,4 @@
-import { View, Text, Image, Dimensions } from 'react-native'
+import { View, Text, Image, Dimensions, SafeAreaView, StatusBar } from 'react-native'
 import React from 'react'
 import * as styles from './styles'
 
@@ -11,7 +11,12 @@ export const DetailScreen = ({ route }) => {
     const residentCount = data?.location?.residents?.length ? data?.location?.residents?.length : '0';
 
     return (
-        <View style={styles.mainStyle()}>
+        <SafeAreaView style={styles.mainStyle()}>
+            <StatusBar
+                animated={true}
+                backgroundColor="#FFFFFF"
+                barStyle={'dark-content'}
+            />
             <Image src={data?.image} style={styles.imageStyle(height, width)}
                 resizeMode='stretch' />
 
@@ -34,6 +39,6 @@ export const DetailScreen = ({ route }) => {
                     <Text style={styles.subTitleStyle()}>Amount of Residents:- {originResidentCount}</Text>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }

@@ -1,4 +1,4 @@
-import { View, Text, FlatList, ActivityIndicator } from 'react-native'
+import { View, FlatList, ActivityIndicator, StatusBar, SafeAreaView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Card } from '../../components/card';
 import { useNavigation } from '@react-navigation/native';
@@ -58,7 +58,12 @@ export const HomeScreen = () => {
     }, []);
 
     return (
-        <View style={styles.mainContaier()}>
+        <SafeAreaView style={styles.mainContaier()}>
+            <StatusBar
+                animated={true}
+                backgroundColor="#FFFFFF"
+                barStyle={'dark-content'}
+            />
             {isLoading && <ActivityIndicator size="large"
                 color="black"
                 style={styles.loaderStyle()} />}
@@ -79,6 +84,6 @@ export const HomeScreen = () => {
                     )
                 }}
             />
-        </View>
+        </SafeAreaView>
     )
 }

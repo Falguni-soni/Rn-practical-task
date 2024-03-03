@@ -4,7 +4,6 @@ import * as styles from './styles'
 
 export const Card = (props) => {
     const { data, onPress, index } = props
-    console.log("props", data?.episode[index]?.name)
     const height = Dimensions.get('window').height;
     const width = Dimensions.get('window').width
 

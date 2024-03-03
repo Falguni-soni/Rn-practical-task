@@ -1,4 +1,4 @@
-import { View, Image, Dimensions, Animated } from 'react-native'
+import { Image, Dimensions, Animated, StatusBar, SafeAreaView } from 'react-native'
 import React, { useEffect, useRef } from 'react'
 import * as styles from './styles'
 
@@ -20,7 +20,10 @@ export const SplashScreen = () => {
     })
 
     return (
-        <View style={styles.mainStyle()}>
+        <SafeAreaView style={styles.mainStyle()}>
+            <StatusBar
+                animated={true}
+                backgroundColor="green" />
             <Animated.View style={[
                 {
                     opacity: fadeAnim,
@@ -29,6 +32,6 @@ export const SplashScreen = () => {
                 <Image source={require('../../assets/images/mainLogo.png')} resizeMode='contain'
                     style={styles.ImageStyle(height, width)} />
             </Animated.View>
-        </View>
+        </SafeAreaView>
     )
 }
